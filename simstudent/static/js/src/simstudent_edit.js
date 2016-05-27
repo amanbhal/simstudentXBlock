@@ -40,13 +40,13 @@ function simstudentXBlock(runtime, element) {
     
     // The Browser API key obtained from the Google Developers Console.
     // Replace with your own Browser API key, or your own key.
-    window.developerKey = 'AIzaSyCpW0K0tbhfvJmMrPw1rsFsyhH6QFJDRA8';
+    window.developerKey = '07708e7273a463bd32b86fb8de91de0b2bb457d8';
 
     // The Client ID obtained from the Google Developers Console. Replace with your own Client ID.
-    window.clientId = "870410046401-p2s67o18c1npgi8ebbppqsi03237a5bn.apps.googleusercontent.com";
+    window.clientId = "295678041411-6h5l9gaukfrmbokacqa77qmu6p3sgson.apps.googleusercontent.com";
 
     // Replace with your own App ID. (Its the first number in your Client ID)
-    window.appId = "870410046401";
+    window.appId = "295678041411";
 
     // Scope to use to access user's Drive items.
     window.scope = ['https://www.googleapis.com/auth/drive'];
