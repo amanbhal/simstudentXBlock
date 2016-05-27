@@ -40,10 +40,10 @@ function simstudentXBlock(runtime, element) {
     
     // The Browser API key obtained from the Google Developers Console.
     // Replace with your own Browser API key, or your own key.
-    window.developerKey = '07708e7273a463bd32b86fb8de91de0b2bb457d8';
+    window.developerKey = 'AIzaSyA3I00ZU5O7r8G2R9TG97UABIXE_fptrmg';
 
     // The Client ID obtained from the Google Developers Console. Replace with your own Client ID.
-    window.clientId = "295678041411-6h5l9gaukfrmbokacqa77qmu6p3sgson.apps.googleusercontent.com";
+    window.clientId = "295678041411-j5743kgm509iaa6uviipm09ufren29g8.apps.googleusercontent.com";
 
     // Replace with your own App ID. (Its the first number in your Client ID)
     window.appId = "295678041411";
