@@ -63,9 +63,7 @@ class simstudentXBlock(XBlock):
         self.display_name = data['display_name']
         self.name = data['name']
 
-        return {
-            'result': 'success',
-        }
+        return {'result': 'success'}
 
     # TO-DO: change this to create the scenarios you'd like to see in the
     # workbench while developing your XBlock.
