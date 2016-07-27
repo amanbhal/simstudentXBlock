@@ -14,7 +14,7 @@ class simstudentXBlock(XBlock):
     # self.<fieldname>.
     # TO-DO: change the default href so it is included as a resource in the xblock, not an url
     href = String(display_name="href",
-                  default="http://10.202.199.27:8080/SimStudentServlet/tutor.html?BRD=https%3A%2F%2Fdrive.google.com%2Fuc%3Fexport%3Dview%26amp%3Bid%3D0B9HrAZWbjPIUazlkeDB1MTFFU2M&CSS=&INFO=&BRMODE=AuthorTimeTutoring&AUTORUN=on&KEYBOARDGROUP=Disabled&BACKDIR=http%3A%2F%2F10.202.199.27%3A8080%2FSimStudentServlet%2FWEB-INF%2Fclasses&BACKENTRY=interaction.ModelTracerBackend&PROBLEM=xxx&DATASET=FlashLoggingTest_xxx&LEVEL1=Unit1&TYPE1=unit&USER=qa-test&GENERATED=on&SOURCE=PACT_CTAT_HTML5&USEOLI=false&SLOG=true&LOGTYPE=None&DISKDIR=.&PORT=4000&REMOTEURL=http%3A%2F%2F10.202.199.27%3A8080%2FSimStudentServlet%2Fserv&SKILLS=&VAR1=xxx_xxx&VAL1=xxx&VAR2=xxx_xxx&VAL2=xxx&VAR3=xxx_xxx&VAL3=xxx&VAR4=xxx_xxx&VAL4=xxx&submit=Launch+HTML5+Tutor",
+                  default="http://kona.education.tamu.edu:2401/SimStudentServlet%20%28Working%29/tutor.html?BRD=http%3A%2F%2Fkona.education.tamu.edu%3A2401%2FSimStudentServlet%2Fif_p_or_q_then_r.brd&ARG=-traceOn+-folder+informallogic+-problem+if_p_or_q_then_r+-ssTypeChecker+informallogic.MyFeaturePredicate.valueTypeChecker&CSS=&INFO=&BRMODE=AuthorTimeTutoring&AUTORUN=on&KEYBOARDGROUP=Disabled&BACKDIR=http%3A%2F%2Fkona.education.tamu.edu%3A2401%2FSimStudentServlet%2Fbuild%2Fclasses&BACKENTRY=interaction.ModelTracerBackend&PROBLEM=xxx&DATASET=FlashLoggingTest_xxx&LEVEL1=Unit1&TYPE1=unit&USER=qa-test&GENERATED=on&SOURCE=PACT_CTAT_HTML5&USEOLI=false&SLOG=true&LOGTYPE=None&DISKDIR=.&PORT=4000&REMOTEURL=serv&SKILLS=&VAR1=xxx_xxx&VAL1=xxx&VAR2=xxx_xxx&VAL2=xxx&VAR3=xxx_xxx&VAL3=xxx&VAR4=xxx_xxx&VAL4=xxx&submit=Launch+HTML5+Tutor",
                   scope=Scope.content,
                   help="Simstudent file that will be shown in the XBlock")
 
@@ -22,7 +22,10 @@ class simstudentXBlock(XBlock):
                           default="Simstudent File",
                           scope=Scope.settings,
                           help="Name of the component in the edxplatform")
-
+    name = String(display_name="name",
+                    default="if_p_or_q_then_r.brd",
+                    scope=Scope.content,
+                    help="Name of the brd file to run")
     def resource_string(self, path):
         """Handy helper for getting resources from our kit."""
         data = pkg_resources.resource_string(__name__, path)
@@ -58,6 +61,7 @@ class simstudentXBlock(XBlock):
         """
         self.href = data['href']
         self.display_name = data['display_name']
+        self.name = data['name']
 
         return {
             'result': 'success',
