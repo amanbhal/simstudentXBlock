@@ -61,7 +61,6 @@ class simstudentXBlock(XBlock):
         """
         self.href = data['href']
         self.display_name = data['display_name']
-        self.name = data['name']
 
         return {'result': 'success'}
 
