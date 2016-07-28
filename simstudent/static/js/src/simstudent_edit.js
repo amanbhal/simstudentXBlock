@@ -12,8 +12,8 @@ function simstudentXBlock(runtime, element) {
     });
 
     $(element).find('.save-button').bind('click', function() {
-        var brd_name = $(edit_display_name).context.value;
-        var brd_url = encodeURIComponent($(edit_href).context.value);
+        var brd_name = $(edit_name).context.value;
+        //var brd_url = encodeURIComponent($(edit_href).context.value);
         if(brd_name=="if_p_or_q_then_r.brd")
             var complete_url = "http://kona.education.tamu.edu:2401/SimStudentServlet%20%28Working%29/tutor.html?BRD=http%3A%2F%2Fkona.education.tamu.edu%3A2401%2FSimStudentServlet%2F"+brd_name+"&ARG=-traceOn+-folder+informallogic+-problem+if_p_or_q_then_r+-ssTypeChecker+informallogic.MyFeaturePredicate.valueTypeChecker&CSS=&INFO=&BRMODE=AuthorTimeTutoring&AUTORUN=on&KEYBOARDGROUP=Disabled&BACKDIR=http%3A%2F%2Fkona.education.tamu.edu%3A2401%2FSimStudentServlet%2Fbuild%2Fclasses&BACKENTRY=interaction.ModelTracerBackend&PROBLEM=xxx&DATASET=FlashLoggingTest_xxx&LEVEL1=Unit1&TYPE1=unit&USER=qa-test&GENERATED=on&SOURCE=PACT_CTAT_HTML5&USEOLI=false&SLOG=true&LOGTYPE=None&DISKDIR=.&PORT=4000&REMOTEURL=serv&SKILLS=&VAR1=xxx_xxx&VAL1=xxx&VAR2=xxx_xxx&VAL2=xxx&VAR3=xxx_xxx&VAL3=xxx&VAR4=xxx_xxx&VAL4=xxx&submit=Launch+HTML5+Tutor";
         else
@@ -22,18 +22,24 @@ function simstudentXBlock(runtime, element) {
             'display_name': $(edit_display_name).context.value,
             'href':complete_url
         };
-
+        
         $('.xblock-editor-error-message', element).html();
         $('.xblock-editor-error-message', element).css('display', 'none');
         var handlerUrl = runtime.handlerUrl(element, 'save_simstudent');
+        
+        runtime.notify('save', {state: 'start'});
         $.post(handlerUrl, JSON.stringify(data)).done(function(response) {
-            if (response.result === 'success') {
-                window.location.reload(false);
-            } else {
-                $('.xblock-editor-error-message', element).html('Error: '+response.message);
-                $('.xblock-editor-error-message', element).css('display', 'block');
-            }
+          runtime.notify('save', {state: 'end'});
         });
+        
+        // $.post(handlerUrl, JSON.stringify(data)).done(function(response) {
+        //     if (response.result === 'success') {
+        //         window.location.reload(false);
+        //     } else {
+        //         $('.xblock-editor-error-message', element).html('Error: '+response.message);
+        //         $('.xblock-editor-error-message', element).css('display', 'block');
+        //     }
+        // });
     });
 
     $(element).find('#drive-button').bind('click', function() {
