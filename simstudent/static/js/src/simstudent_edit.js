@@ -10,7 +10,7 @@ function simstudentXBlock(runtime, element) {
 		var brd_name = $(edit_name).context.value;
 		var complete_url = "http://localhost:8080/SimStudentServlet/tutor.html?BRD=http%3A%2F%2Flocalhost%3A8080%2FSimStudentServlet%2F"+brd_name+"&ARG=-traceOn+-folder+informallogic+-problem+if_p_or_q_then_r+-ssTypeChecker+informallogic.MyFeaturePredicate.valueTypeChecker&CSS=&INFO=&BRMODE=AuthorTimeTutoring&AUTORUN=on&KEYBOARDGROUP=Disabled&BACKDIR=http%3A%2F%2Flocalhost%3A8080%2FSimStudentServlet%2Fbuild%2Fclasses&BACKENTRY=interaction.ModelTracerBackend&PROBLEM=xxx&DATASET=FlashLoggingTest_xxx&LEVEL1=Unit1&TYPE1=unit&USER=qa-test&GENERATED=on&SOURCE=PACT_CTAT_HTML5&USEOLI=false&SLOG=true&LOGTYPE=None&DISKDIR=.&PORT=4000&REMOTEURL=serv&SKILLS=&VAR1=xxx_xxx&VAL1=xxx&VAR2=xxx_xxx&VAL2=xxx&VAR3=xxx_xxx&VAL3=xxx&VAR4=xxx_xxx&VAL4=xxx&submit=Launch+HTML5+Tutor";
 
-		var data = {'href':complete_url };
+		var data = {'href':complete_url, 'name':brd_name };
 		
 		$('.xblock-editor-error-message', element).html();
         	$('.xblock-editor-error-message', element).css('display', 'none');

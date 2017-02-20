@@ -60,6 +60,7 @@ class simstudentXBlock(XBlock):
         An example handler, which increments the data.
         """
         self.href = data['href']
+	self.name = data['name']
         
         return {'result': 'success'}
 
